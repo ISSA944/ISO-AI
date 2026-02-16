@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">    <title>GitHub Copilot - AI for Coding - ISO</title>
+</head>
+<body class="loading">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <span class="terminal-title">terminal</span>
+                <div class="terminal-spacer"></div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-output" id="terminalOutput"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h2>Get in Touch</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="nameInput" placeholder="Name">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phoneInput" placeholder="Phone">
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+                <div class="form-group">
+                    <select id="reasonSelect">
+                        <option value="" disabled selected>What would you like to book?</option>
+                        <option value="consultation">Consultation</option>
+                        <option value="demo">Demo</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <span class="error-message" id="reasonError"></span>
+                </div>
+                <div class="form-group hidden" id="otherReasonGroup">
+                    <input type="text" id="otherReasonInput" placeholder="Please specify...">
+                </div>
+                <button type="submit" class="submit-btn">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <header class="site-header page-header">
+        <div class="container_header">
+            <a href="../index.html" class="header__logo" aria-label="Home">
+                <div class="logo-wrapper">
+                    <span class="logo-symbol">&lt;/&gt;</span>
+                    <span class="logo-text">ISO</span>
+                </div>
+            </a>
+
+            <button class="burger-menu" id="burgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="header__nav" id="mainNav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#what-is-ai">What is AI</a>
+                <a href="../ai-coding.html">AI for Coding</a>
+                <a href="../ai-students.html">AI for Students</a>
+            </nav>
+
+            <div class="header__right">
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                </div>
+
+                <a href="#" class="btn" id="contactBtn">Contacts</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero">
+            <div class="container">
+                <div class="tool-hero-content">
+                    <div class="tool-icon">
+                        <img src="../image_logos/github.svg" alt="GitHub Copilot" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h1 class="tool-title">GitHub <span class="highlight">Copilot</span></h1>
+                    <p class="tool-tagline">Your AI Pair Programmer</p>
+                    <div class="tool-badges">
+                        <span class="badge-premium">Most Popular</span>
+                        <span class="badge-category">Code Assistant</span>
+                        <span class="badge-rating">⭐ 4.8/5</span>
+                    </div>
+                    <div class="tool-cta-buttons">
+                        <a href="https://github.com/features/copilot" target="_blank" class="cta-primary">Try GitHub Copilot →</a>
+                        <a href="#features" class="cta-secondary">Learn More ↓</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="tool-overview">
+            <div class="container">
+                <div class="overview-grid">
+                    <div class="overview-main">
+                        <h2>What is <span class="highlight">GitHub Copilot</span>?</h2>
+                        <p class="lead-text">GitHub Copilot is the world's most widely adopted AI developer tool, powered by OpenAI Codex. It acts as your personal pair programmer, suggesting entire lines and functions in real-time as you code.</p>
+                        
+                        <p>Developed by GitHub and OpenAI, Copilot understands context from your code and comments, providing intelligent autocomplete suggestions across dozens of programming languages. It's trained on billions of lines of public code, making it incredibly knowledgeable about common patterns, frameworks, and best practices.</p>
+
+                        <p>Whether you're writing Python, JavaScript, TypeScript, Ruby, Go, C#, or any other major language, Copilot accelerates your workflow by reducing repetitive coding tasks and helping you discover new APIs and libraries.</p>
+
+                        <div class="key-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">1M+</div>
+                                <div class="stat-label">Developers</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Languages</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">55%</div>
+                                <div class="stat-label">Faster Coding</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Availability</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-sidebar">
+                        <div class="info-card">
+                            <h3>Quick Info</h3>
+                            <ul class="info-list">
+                                <li><strong>Developer:</strong> GitHub & OpenAI</li>
+                                <li><strong>Launch Date:</strong> June 2021</li>
+                                <li><strong>Model:</strong> OpenAI Codex</li>
+                                <li><strong>Pricing:</strong> $10/month (individual)</li>
+                                <li><strong>Free Trial:</strong> 30 days</li>
+                                <li><strong>IDE Support:</strong> VS Code, Visual Studio, JetBrains, Neovim</li>
+                                <li><strong>Best For:</strong> All Development Tasks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title-center">Powerful Features for <span class="highlight">Developers</span></h2>
+                
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Intelligent Code Completion</h3>
+                        <p>Get contextual suggestions for entire lines and functions. Copilot understands your coding style and project context to provide relevant recommendations.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Multi-Line Suggestions</h3>
+                        <p>Generate complex code blocks including loops, conditionals, and functions based on simple comments or function names.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">📝</div>
+                        <h3>Comment-to-Code</h3>
+                        <p>Write a comment describing what you want, and Copilot generates the implementation. Perfect for rapid prototyping.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">🌐</div>
+                        <h3>50+ Languages</h3>
+                        <p>Works with Python, JavaScript, TypeScript, Ruby, Go, C++, C#, Java, PHP, and many more programming languages.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">🧪</div>
+                        <h3>Test Generation</h3>
+                        <p>Automatically generate unit tests based on your functions. Copilot understands testing frameworks like Jest, PyTest, and JUnit.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">📚</div>
+                        <h3>API Discovery</h3>
+                        <p>Learn new APIs and libraries as you code. Copilot suggests correct usage patterns and common implementations.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">🔍</div>
+                        <h3>Code Refactoring</h3>
+                        <p>Improve existing code with suggestions for better patterns, optimizations, and modern syntax.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">💬</div>
+                        <h3>Copilot Chat</h3>
+                        <p>Ask questions about your code, get explanations, and receive debugging help directly in your IDE.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="use-cases-section">
+            <div class="container">
+                <h2 class="section-title-center">Real-World <span class="highlight">Use Cases</span></h2>
+                
+                <div class="use-case-tabs">
+                    <div class="use-case-card">
+                        <h3>⚡ Rapid Prototyping</h3>
+                        <div class="example-box">
+                            <p class="example-prompt"><strong>You type:</strong> // fetch user data from API and display in table</p>
+                            <p class="example-response"><strong>Copilot suggests:</strong> Complete async function with fetch, error handling, and DOM manipulation</p>
+                        </div>
+                        <p class="use-case-benefit">Build MVPs and prototypes 10x faster with instant boilerplate generation.</p>
+                    </div>
+
+                    <div class="use-case-card">
+                        <h3>🐛 Debug Assistance</h3>
+                        <div class="example-box">
+                            <p class="example-prompt"><strong>You type:</strong> // fix this memory leak</p>
+                            <p class="example-response"><strong>Copilot suggests:</strong> Proper cleanup code with useEffect cleanup or manual listener removal</p>
+                        </div>
+                        <p class="use-case-benefit">Identify and fix bugs faster with AI-powered suggestions.</p>
+                    </div>
+
+                    <div class="use-case-card">
+                        <h3>📝 Documentation Writing</h3>
+                        <div class="example-box">
+                            <p class="example-prompt"><strong>You type:</strong> /**</p>
+                            <p class="example-response"><strong>Copilot suggests:</strong> Complete JSDoc with parameter types, return values, and examples</p>
+                        </div>
+                        <p class="use-case-benefit">Maintain better documentation with minimal effort.</p>
+                    </div>
+
+                    <div class="use-case-card">
+                        <h3>🧪 Test Creation</h3>
+                        <div class="example-box">
+                            <p class="example-prompt"><strong>You type:</strong> // test cases for calculateTotal function</p>
+                            <p class="example-response"><strong>Copilot suggests:</strong> Complete test suite with edge cases, mocks, and assertions</p>
+                        </div>
+                        <p class="use-case-benefit">Achieve higher test coverage without the tedious manual writing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-section">
+            <div class="container">
+                <h2 class="section-title-center">Simple <span class="highlight">Pricing</span></h2>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Individual</h3>
+                        <div class="price">$10<span>/month</span></div>
+                        <ul class="pricing-features">
+                            <li>✓ Code suggestions</li>
+                            <li>✓ Multi-line completions</li>
+                            <li>✓ IDE integration</li>
+                            <li>✓ 50+ languages</li>
+                            <li>✓ Copilot Chat</li>
+                            <li>✓ 30-day free trial</li>
+                        </ul>
+                        <a href="https://github.com/github-copilot/signup" target="_blank" class="pricing-btn">Start Free Trial</a>
+                    </div>
+
+                    <div class="pricing-card featured-plan">
+                        <div class="popular-badge">Most Popular</div>
+                        <h3>Business</h3>
+                        <div class="price">$19<span>/user/month</span></div>
+                        <ul class="pricing-features">
+                            <li>✓ Everything in Individual</li>
+                            <li>✓ Organization license</li>
+                            <li>✓ Policy management</li>
+                            <li>✓ Public code filter</li>
+                            <li>✓ IP indemnity</li>
+                            <li>✓ Priority support</li>
+                        </ul>
+                        <a href="https://github.com/organizations/plan" target="_blank" class="pricing-btn primary">For Teams</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>Enterprise</h3>
+                        <div class="price">$39<span>/user/month</span></div>
+                        <ul class="pricing-features">
+                            <li>✓ Everything in Business</li>
+                            <li>✓ Fine-tuned models</li>
+                            <li>✓ Private repositories</li>
+                            <li>✓ Advanced security</li>
+                            <li>✓ Audit logs</li>
+                            <li>✓ Dedicated support</li>
+                        </ul>
+                        <a href="https://github.com/enterprise/copilot" target="_blank" class="pricing-btn">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title-center">Pro <span class="highlight">Tips</span> for Developers</h2>
+                
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-number">1</div>
+                        <h3>Write Descriptive Comments</h3>
+                        <p>Clear comments help Copilot understand your intent better. Be specific about what you want the code to do.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">2</div>
+                        <h3>Use Meaningful Names</h3>
+                        <p>Function and variable names provide context. Better names lead to better suggestions.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">3</div>
+                        <h3>Review All Suggestions</h3>
+                        <p>Always review Copilot's code. It's a tool to assist, not replace your judgment and expertise.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">4</div>
+                        <h3>Cycle Through Options</h3>
+                        <p>Press Alt+] or Alt+[ to see alternative suggestions. Copilot often provides multiple solutions.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">5</div>
+                        <h3>Start with Tests</h3>
+                        <p>Write test cases first, and let Copilot help implement the function to pass those tests.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">6</div>
+                        <h3>Learn from Suggestions</h3>
+                        <p>Use Copilot as a learning tool. Analyze its suggestions to discover new patterns and APIs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="final-cta-section">
+            <div class="container">
+                <div class="final-cta-content">
+                    <h2>Ready to Code 10x Faster?</h2>
+                    <p>Join over 1 million developers using GitHub Copilot to build better software.</p>
+                    <div class="cta-buttons-group">
+                        <a href="https://github.com/features/copilot" target="_blank" class="cta-btn-large primary">Start 30-Day Free Trial →</a>
+                        <a href="../ai-coding.html" class="cta-btn-large">Explore More AI Tools</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../preloader.js"></script>
+    <script src="../script.js"></script>
+    <script src="translation.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>AI for Coding - ISO</title>
+</head>
+<body class="loading">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <span class="terminal-title">terminal</span>
+                <div class="terminal-spacer"></div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-output" id="terminalOutput"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h2 data-translate="modal.title">Get in Touch</h2>
+            <form class="contact-form" id="contactForm" novalidate>
+                <div class="form-group">
+                    <input type="text" id="nameInput" data-translate-placeholder="modal.name" placeholder="Name">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phoneInput" data-translate-placeholder="modal.phone" placeholder="Phone">
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+                <div class="form-group">
+                    <select id="reasonSelect">
+                        <option value="" disabled selected data-translate="modal.selectPlaceholder">What would you like to book?</option>
+                        <option value="consultation" data-translate="modal.consultation">Consultation</option>
+                        <option value="demo" data-translate="modal.demo">Demo</option>
+                        <option value="partnership" data-translate="modal.partnership">Partnership</option>
+                        <option value="other" data-translate="modal.other">Other</option>
+                    </select>
+                    <span class="error-message" id="reasonError"></span>
+                </div>
+                <div class="form-group hidden" id="otherReasonGroup">
+                    <input type="text" id="otherReasonInput" data-translate-placeholder="modal.otherReason" placeholder="Please specify...">
+                </div>
+                <button type="submit" class="submit-btn" data-translate="modal.send">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <header class="site-header page-header">
+        <div class="container_header">
+            <a href="index.html" class="header__logo" aria-label="Home">
+                <div class="logo-wrapper">
+                    <span class="logo-symbol">&lt;/&gt;</span>
+                    <span class="logo-text">ISO</span>
+                </div>
+            </a>
+
+            <!-- Burger Menu Button -->
+            <button class="burger-menu" id="burgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="header__nav" id="mainNav">
+                <a href="index.html" data-translate="nav.home">Home</a>
+                <a href="index.html#about-project" data-translate="nav.aboutProject">About Project</a>
+                <a href="index.html#what-is-ai" data-translate="nav.whatIsAI">What is AI</a>
+                <a href="ai-coding.html" data-translate="nav.coding">AI for Coding</a>
+                <a href="ai-students.html" data-translate="nav.students">AI for Students</a>
+            </nav>
+
+            <div class="header__right">
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <button class="lang-toggle" id="langToggle" data-current="en">EN</button>
+                </div>
+
+                <a href="#" class="btn" id="contactBtn" data-translate="nav.contacts">Contacts</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title"><span data-translate="coding.pageTitle">AI for</span> <span class="highlight" data-translate="coding.pageHighlight">Coding</span></h1>
+                <p class="page-subtitle" data-translate="coding.pageSubtitle">Supercharge your development workflow with AI-powered coding assistants</p>
+            </div>
+        </section>
+
+        <!-- AI Tools Section -->
+        <section class="ai-tools-section">
+            <div class="container">
+                <h2 class="section-title-small"><span data-translate="coding.sectionTitle">Best</span> <span class="highlight" data-translate="coding.sectionHighlight">AI Tools</span> <span data-translate="coding.sectionTitleEnd">for Developers</span></h2>
+                
+                <div class="ai-tool-card featured">
+                    <div class="tool-icon-large">
+                        <img src="image_logos/github.svg" alt="GitHub Copilot" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="tool-header">
+                        <h3 data-translate="coding.tools.github.name">GitHub Copilot</h3>
+                        <span class="tool-badge" data-translate="coding.tools.github.badge">Most Popular</span>
+                    </div>
+                    <p class="tool-description" data-translate="coding.tools.github.description">AI pair programmer that suggests code completions and entire functions in real-time. Works across all major languages.</p>
+                    <div class="tool-features">
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.github.features.0">Code Completion</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.github.features.1">Multiple Languages</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.github.features.2">Context-Aware</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.github.features.3">IDE Integration</span></div>
+                    </div>
+                    <a href="tools/github-copilot.html" class="tool-link" data-translate="coding.tools.github.link">Learn More →</a>
+                </div>
+
+                <div class="ai-tool-card">
+                    <div class="tool-icon-large">
+                        <img src="image_logos/cursor.svg" alt="Cursor" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="tool-header">
+                        <h3 data-translate="coding.tools.cursor.name">Cursor</h3>
+                        <span class="tool-badge" data-translate="coding.tools.cursor.badge">AI IDE</span>
+                    </div>
+                    <p class="tool-description" data-translate="coding.tools.cursor.description">AI-first code editor built on VS Code. Chat with your codebase, generate code, and edit naturally.</p>
+                    <div class="tool-features">
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.cursor.features.0">AI Chat</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.cursor.features.1">Code Generation</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.cursor.features.2">Refactoring</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.cursor.features.3">Bug Fixing</span></div>
+                    </div>
+                    <a href="https://cursor.sh" target="_blank" class="tool-link" data-translate="coding.tools.cursor.link">Learn More →</a>
+                </div>
+
+                <div class="ai-tool-card">
+                    <div class="tool-icon-large">
+                        <img src="image_logos/tabler-brand-tabnine-48px.svg" alt="Tabnine" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="tool-header">
+                        <h3 data-translate="coding.tools.tabnine.name">Tabnine</h3>
+                        <span class="tool-badge" data-translate="coding.tools.tabnine.badge">Code Completion</span>
+                    </div>
+                    <p class="tool-description" data-translate="coding.tools.tabnine.description">AI code completion that learns from your codebase. Privacy-focused with local and cloud options.</p>
+                    <div class="tool-features">
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.tabnine.features.0">Autocomplete</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.tabnine.features.1">Team Learning</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.tabnine.features.2">Privacy First</span></div>
+                    </div>
+                    <a href="https://tabnine.com" target="_blank" class="tool-link" data-translate="coding.tools.tabnine.link">Learn More →</a>
+                </div>
+
+                <div class="ai-tool-card">
+                    <div class="tool-icon-large">
+                        <img src="image_logos/windsurf (1).svg" alt="Codeium Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="tool-header">
+                        <h3 data-translate="coding.tools.codeium.name">Codeium</h3>
+                        <span class="tool-badge" data-translate="coding.tools.codeium.badge">Free Forever</span>
+                    </div>
+                    <p class="tool-description" data-translate="coding.tools.codeium.description">Free AI code acceleration toolkit. Fast autocomplete, intelligent search, and chat for developers.</p>
+                    <div class="tool-features">
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.codeium.features.0">Free</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.codeium.features.1">Fast</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.codeium.features.2">Chat Support</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.codeium.features.3">Multi-language</span></div>
+                    </div>
+                    <a href="https://codeium.com" target="_blank" class="tool-link" data-translate="coding.tools.codeium.link">Learn More →</a>
+                </div>
+
+                <div class="ai-tool-card">
+                    <div class="tool-icon-large">
+                        <img src="image_logos/claude.svg" alt="Claude" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="tool-header">
+                        <h3 data-translate="coding.tools.claude.name">Claude</h3>
+                        <span class="tool-badge" data-translate="coding.tools.claude.badge">AI Assistant</span>
+                    </div>
+                    <p class="tool-description" data-translate="coding.tools.claude.description">Advanced AI assistant for coding, debugging, and architectural decisions. Excellent for complex programming tasks.</p>
+                    <div class="tool-features">
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.claude.features.0">Code Review</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.claude.features.1">Debugging</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.claude.features.2">Architecture</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.claude.features.3">Documentation</span></div>
+                    </div>
+                    <a href="https://claude.ai" target="_blank" class="tool-link" data-translate="coding.tools.claude.link">Learn More →</a>
+                </div>
+
+                <div class="ai-tool-card">
+                    <div class="tool-icon-large">
+                        <img src="image_logos/windsurf.svg" alt="Windsurf Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="tool-header">
+                        <h3 data-translate="coding.tools.windsurf.name">Windsurf</h3>
+                        <span class="tool-badge" data-translate="coding.tools.windsurf.badge">New</span>
+                    </div>
+                    <p class="tool-description" data-translate="coding.tools.windsurf.description">AI-powered development environment with natural language commands and collaborative coding features.</p>
+                    <div class="tool-features">
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.windsurf.features.0">Natural Language</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.windsurf.features.1">Code Generation</span></div>
+                        <div class="feature-tag">✓ <span data-translate="coding.tools.windsurf.features.2">Collaboration</span></div>
+                    </div>
+                    <a href="https://codeium.com/windsurf" target="_blank" class="tool-link" data-translate="coding.tools.windsurf.link">Learn More →</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <div class="container">
+                <h2 class="section-title-small"><span data-translate="coding.benefitsTitle">Why Use</span> <span class="highlight">AI</span> <span data-translate="coding.benefitsTitleEnd">for Development?</span></h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3 data-translate="coding.benefits.productivity.title">Code Faster</h3>
+                        <p data-translate="coding.benefits.productivity.description">Write code 10x faster with intelligent suggestions</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🐛</div>
+                        <h3 data-translate="coding.benefits.quality.title">Better Quality</h3>
+                        <p data-translate="coding.benefits.quality.description">Catch bugs early and improve code standards</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📚</div>
+                        <h3 data-translate="coding.benefits.learning.title">Learn Continuously</h3>
+                        <p data-translate="coding.benefits.learning.description">Understand new patterns and best practices</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎯</div>
+                        <h3 data-translate="coding.benefits.focus.title">Stay Focused</h3>
+                        <p data-translate="coding.benefits.focus.description">Automate repetitive tasks and focus on logic</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-translate="coding.ctaTitle">Ready to Code Smarter?</h2>
+                <p data-translate="coding.ctaSubtitle">Start using AI coding tools and boost your productivity</p>
+                <a href="index.html" class="cta-btn" data-translate="coding.ctaButton">Back to Home →</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="preloader.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>AI for Students - ISO</title>
+</head>
+<body class="loading">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <span class="terminal-title">terminal</span>
+                <div class="terminal-spacer"></div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-output" id="terminalOutput"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h2 data-translate="modal.title">Get in Touch</h2>
+            <form class="contact-form" id="contactForm" novalidate>
+                <div class="form-group">
+                    <input type="text" id="nameInput" data-translate-placeholder="modal.name" placeholder="Name">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phoneInput" data-translate-placeholder="modal.phone" placeholder="Phone">
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+                <div class="form-group">
+                    <select id="reasonSelect">
+                        <option value="" disabled selected data-translate="modal.selectPlaceholder">What would you like to book?</option>
+                        <option value="consultation" data-translate="modal.consultation">Consultation</option>
+                        <option value="demo" data-translate="modal.demo">Demo</option>
+                        <option value="partnership" data-translate="modal.partnership">Partnership</option>
+                        <option value="other" data-translate="modal.other">Other</option>
+                    </select>
+                    <span class="error-message" id="reasonError"></span>
+                </div>
+                <div class="form-group hidden" id="otherReasonGroup">
+                    <input type="text" id="otherReasonInput" data-translate-placeholder="modal.otherReason" placeholder="Please specify...">
+                </div>
+                <button type="submit" class="submit-btn" data-translate="modal.send">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <header class="site-header page-header">
+        <div class="container_header">
+            <a href="index.html" class="header__logo" aria-label="Home">
+                <div class="logo-wrapper">
+                    <span class="logo-symbol">&lt;/&gt;</span>
+                    <span class="logo-text">ISO</span>
+                </div>
+            </a>
+
+            <!-- Burger Menu Button -->
+            <button class="burger-menu" id="burgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="header__nav" id="mainNav">
+                <a href="index.html" data-translate="nav.home">Home</a>
+                <a href="index.html#about-project" data-translate="nav.aboutProject">About Project</a>
+                <a href="index.html#what-is-ai" data-translate="nav.whatIsAI">What is AI</a>
+                <a href="ai-coding.html" data-translate="nav.coding">AI for Coding</a>
+                <a href="ai-students.html" data-translate="nav.students">AI for Students</a>
+            </nav>
+
+            <div class="header__right">
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <button class="lang-toggle" id="langToggle" data-current="en">EN</button>
+                </div>
+
+                <a href="#" class="btn" id="contactBtn" data-translate="nav.contacts">Contacts</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title"><span data-translate="students.pageTitle">AI for</span> <span class="highlight" data-translate="students.pageHighlight">Students</span></h1>
+                <p class="page-subtitle" data-translate="students.pageSubtitle">Unlock your learning potential with AI-powered tools designed for academic excellence</p>
+            </div>
+        </section>
+
+        <!-- AI Tools Section -->
+        <section class="ai-tools-section">
+            <div class="container">
+                <h2 class="section-title-small"><span data-translate="students.sectionTitle">Best</span> <span class="highlight" data-translate="students.sectionHighlight">AI Tools</span> <span data-translate="students.sectionTitleEnd">for Learning</span></h2>
+                
+                <div class="ai-tool-card featured">
+                    <div class="tool-icon-large">
+                        <img src="image_logos/ChatGPT-Logo.svg.png" alt="ChatGPT" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="tool-header">
+                        <div class="tool-title-with-rank">
+                            <span class="rank-badge" data-translate="students.tools.chatgpt.rank">#1</span>
+                            <h3 data-translate="students.tools.chatgpt.name">ChatGPT</h3>
+                        </div>
+                        <span class="tool-badge" data-translate="students.tools.chatgpt.badge">Most Popular</span>
+                    </div>
+                    <p class="tool-description" data-translate="students.tools.chatgpt.description">Your AI study companion for explanations, essay writing, brainstorming, and homework help. Available 24/7 to answer any question.</p>
+                    <div class="tool-features">
+                        <div class="feature-tag">✓ <span data-translate="students.tools.chatgpt.features.0">Essay Writing</span></div>
+                        <div class="feature-tag">✓ <span data-translate="students.tools.chatgpt.features.1">Math Help</span></div>
+                        <div class="feature-tag">✓ <span data-translate="students.tools.chatgpt.features.2">Research</span></div>
+                        <div class="feature-tag">✓ <span data-translate="students.tools.chatgpt.features.3">Study Plans</span></div>
+                    </div>
+                    <a href="tools/chatgpt.html" class="tool-link" data-translate="students.tools.chatgpt.link">Learn More →</a>
+                </div>
+
+                <div class="ai-tool-card">
+                    <div class="tool-icon-large">
+                        <img src="image_logos/arcticons-quillbot-48px.svg" alt="Quillbot" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="tool-header">
+                        <h3 data-translate="students.tools.quillbot.name">Quillbot</h3>
+                        <span class="tool-badge" data-translate="students.tools.quillbot.badge">Paraphrasing</span>
+                    </div>
+                    <p class="tool-description" data-translate="students.tools.quillbot.description">AI-powered paraphrasing and grammar checker. Perfect for improving writing quality and avoiding plagiarism.</p>
+                    <div class="tool-features">
+                        <div class="feature-tag">✓ <span data-translate="students.tools.quillbot.features.0">Paraphrase</span></div>
+                        <div class="feature-tag">✓ <span data-translate="students.tools.quillbot.features.1">Grammar Check</span></div>
+                        <div class="feature-tag">✓ <span data-translate="students.tools.quillbot.features.2">Summarizer</span></div>
+                    </div>
+                    <a href="https://quillbot.com" target="_blank" class="tool-link" data-translate="students.tools.quillbot.link">Learn More →</a>
+                </div>
+
+                <div class="ai-tool-card">
+                    <div class="tool-icon-large">
+                        <img src="image_logos/grammarly.svg" alt="Grammarly" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="tool-header">
+                        <h3 data-translate="students.tools.grammarly.name">Grammarly</h3>
+                        <span class="tool-badge" data-translate="students.tools.grammarly.badge">Writing Assistant</span>
+                    </div>
+                    <p class="tool-description" data-translate="students.tools.grammarly.description">Real-time grammar, spelling, and style suggestions. Makes your academic writing clear and professional.</p>
+                    <div class="tool-features">
+                        <div class="feature-tag">✓ <span data-translate="students.tools.grammarly.features.0">Grammar</span></div>
+                        <div class="feature-tag">✓ <span data-translate="students.tools.grammarly.features.1">Plagiarism</span></div>
+                        <div class="feature-tag">✓ <span data-translate="students.tools.grammarly.features.2">Tone</span></div>
+                    </div>
+                    <a href="https://grammarly.com" target="_blank" class="tool-link" data-translate="students.tools.grammarly.link">Learn More →</a>
+                </div>
+
+                <div class="ai-tool-card">
+                    <div class="tool-icon-large">
+                        <img src="image_logos/notion.svg" alt="Notion AI" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="tool-header">
+                        <h3 data-translate="students.tools.notion.name">Notion AI</h3>
+                        <span class="tool-badge" data-translate="students.tools.notion.badge">Note Taking</span>
+                    </div>
+                    <p class="tool-description" data-translate="students.tools.notion.description">Smart note-taking with AI assistance. Organize lectures, create study guides, and manage projects effortlessly.</p>
+                    <div class="tool-features">
+                        <div class="feature-tag">✓ <span data-translate="students.tools.notion.features.0">Notes</span></div>
+                        <div class="feature-tag">✓ <span data-translate="students.tools.notion.features.1">Organization</span></div>
+                        <div class="feature-tag">✓ <span data-translate="students.tools.notion.features.2">Templates</span></div>
+                    </div>
+                    <a href="https://notion.so" target="_blank" class="tool-link" data-translate="students.tools.notion.link">Learn More →</a>
+                </div>
+
+                <div class="ai-tool-card">
+                    <div class="tool-icon-large">
+                        <img src="image_logos/arcticons-photomath-48px.svg" alt="Photomath" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="tool-header">
+                        <h3 data-translate="students.tools.photomath.name">Photomath</h3>
+                        <span class="tool-badge" data-translate="students.tools.photomath.badge">Math Solver</span>
+                    </div>
+                    <p class="tool-description" data-translate="students.tools.photomath.description">Scan any math problem and get step-by-step solutions. Perfect for algebra, calculus, and more.</p>
+                    <div class="tool-features">
+                        <div class="feature-tag">✓ <span data-translate="students.tools.photomath.features.0">Math Solutions</span></div>
+                        <div class="feature-tag">✓ <span data-translate="students.tools.photomath.features.1">Step-by-step</span></div>
+                        <div class="feature-tag">✓ <span data-translate="students.tools.photomath.features.2">Graphing</span></div>
+                    </div>
+                    <a href="https://photomath.com" target="_blank" class="tool-link" data-translate="students.tools.photomath.link">Learn More →</a>
+                </div>
+
+                <div class="ai-tool-card">
+                    <div class="tool-icon-large">
+                        <img src="image_logos/perplexity.svg" alt="Perplexity AI" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="tool-header">
+                        <h3 data-translate="students.tools.perplexity.name">Perplexity AI</h3>
+                        <span class="tool-badge" data-translate="students.tools.perplexity.badge">Research</span>
+                    </div>
+                    <p class="tool-description" data-translate="students.tools.perplexity.description">AI-powered search engine with cited sources. Perfect for academic research and fact-checking.</p>
+                    <div class="tool-features">
+                        <div class="feature-tag">✓ <span data-translate="students.tools.perplexity.features.0">Research</span></div>
+                        <div class="feature-tag">✓ <span data-translate="students.tools.perplexity.features.1">Citations</span></div>
+                        <div class="feature-tag">✓ <span data-translate="students.tools.perplexity.features.2">Sources</span></div>
+                    </div>
+                    <a href="https://perplexity.ai" target="_blank" class="tool-link" data-translate="students.tools.perplexity.link">Learn More →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <div class="container">
+                <h2 class="section-title-small"><span data-translate="students.benefitsTitle">Why Use</span> <span class="highlight">AI</span> <span data-translate="students.benefitsTitleEnd">for Learning?</span></h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3 data-translate="students.benefits.fast.title">Learn Faster</h3>
+                        <p data-translate="students.benefits.fast.description">Get instant explanations and answers to complex topics</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎯</div>
+                        <h3 data-translate="students.benefits.grades.title">Better Grades</h3>
+                        <p data-translate="students.benefits.grades.description">Improve writing quality and understanding of subjects</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🚀</div>
+                        <h3 data-translate="students.benefits.time.title">Save Time</h3>
+                        <p data-translate="students.benefits.time.description">Automate repetitive tasks and focus on what matters</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💡</div>
+                        <h3 data-translate="students.benefits.support.title">24/7 Support</h3>
+                        <p data-translate="students.benefits.support.description">AI tutors available anytime, anywhere you need help</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-translate="students.ctaTitle">Ready to Transform Your Learning?</h2>
+                <p data-translate="students.ctaSubtitle">Start using AI tools today and see the difference</p>
+                <a href="index.html" class="cta-btn" data-translate="students.ctaButton">Back to Home →</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="preloader.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

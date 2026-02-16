@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">    <title>ChatGPT - AI for Students - ISO</title>
+</head>
+<body class="loading">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <span class="terminal-title">terminal</span>
+                <div class="terminal-spacer"></div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-output" id="terminalOutput"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h2>Get in Touch</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="nameInput" placeholder="Name">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phoneInput" placeholder="Phone">
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+                <div class="form-group">
+                    <select id="reasonSelect">
+                        <option value="" disabled selected>What would you like to book?</option>
+                        <option value="consultation">Consultation</option>
+                        <option value="demo">Demo</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <span class="error-message" id="reasonError"></span>
+                </div>
+                <div class="form-group hidden" id="otherReasonGroup">
+                    <input type="text" id="otherReasonInput" placeholder="Please specify...">
+                </div>
+                <button type="submit" class="submit-btn">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <header class="site-header page-header">
+        <div class="container_header">
+            <a href="../index.html" class="header__logo" aria-label="Home">
+                <div class="logo-wrapper">
+                    <span class="logo-symbol">&lt;/&gt;</span>
+                    <span class="logo-text">ISO</span>
+                </div>
+            </a>
+
+            <!-- Burger Menu Button -->
+            <button class="burger-menu" id="burgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="header__nav" id="mainNav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#what-is-ai">What is AI</a>
+                <a href="../ai-coding.html">AI for Coding</a>
+                <a href="../ai-students.html">AI for Students</a>
+            </nav>
+
+            <div class="header__right">
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                </div>
+
+                <a href="#" class="btn" id="contactBtn">Contacts</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <!-- Tool Hero Section -->
+        <section class="tool-hero">
+            <div class="container">
+                <div class="tool-hero-content">
+                    <div class="tool-icon">
+                        <img src="../image_logos/ChatGPT-Logo.svg.png" alt="ChatGPT" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h1 class="tool-title">Chat<span class="highlight">GPT</span></h1>
+                    <p class="tool-tagline">Your Ultimate AI Study Companion</p>
+                    <div class="tool-badges">
+                        <span class="badge-premium">Most Popular</span>
+                        <span class="badge-category">AI Assistant</span>
+                        <span class="badge-rating">⭐ 4.9/5</span>
+                    </div>
+                    <div class="tool-cta-buttons">
+                        <a href="https://chat.openai.com" target="_blank" class="cta-primary">Try ChatGPT Free →</a>
+                        <a href="#features" class="cta-secondary">Learn More ↓</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="tool-overview">
+            <div class="container">
+                <div class="overview-grid">
+                    <div class="overview-main">
+                        <h2>What is <span class="highlight">ChatGPT</span>?</h2>
+                        <p class="lead-text">ChatGPT is OpenAI's revolutionary conversational AI that has transformed how students learn, write, and solve problems. With over 100 million users worldwide, it's the most powerful and accessible AI assistant for education.</p>
+                        
+                        <p>Whether you're struggling with complex calculus problems, need help drafting an essay, or want to understand quantum physics in simple terms, ChatGPT is available 24/7 to assist you. It's like having a patient, knowledgeable tutor who never gets tired and can explain anything in a way you understand.</p>
+
+                        <div class="key-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">100M+</div>
+                                <div class="stat-label">Active Users</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Availability</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Languages</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">Free</div>
+                                <div class="stat-label">Basic Plan</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-sidebar">
+                        <div class="info-card">
+                            <h3>Quick Info</h3>
+                            <ul class="info-list">
+                                <li><strong>Developer:</strong> OpenAI</li>
+                                <li><strong>Launch Date:</strong> November 2022</li>
+                                <li><strong>Model:</strong> GPT-4 (Premium)</li>
+                                <li><strong>Free Version:</strong> Yes (GPT-3.5)</li>
+                                <li><strong>Premium:</strong> $20/month</li>
+                                <li><strong>Best For:</strong> Writing, Research, Problem-Solving</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title-center">Powerful Features for <span class="highlight">Students</span></h2>
+                
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon">✍️</div>
+                        <h3>Essay & Paper Writing</h3>
+                        <p>Generate outlines, research suggestions, and improve your writing. ChatGPT helps you brainstorm ideas, structure arguments, and refine your academic prose while maintaining your unique voice.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">🧮</div>
+                        <h3>Math & Problem Solving</h3>
+                        <p>Get step-by-step solutions to complex math problems from algebra to calculus. ChatGPT breaks down problems into manageable steps and explains the reasoning behind each solution.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">🔬</div>
+                        <h3>Science Explanations</h3>
+                        <p>Understand difficult scientific concepts through clear, simple explanations. From chemistry equations to physics theories, ChatGPT makes complex topics accessible.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">📚</div>
+                        <h3>Study Plans & Summaries</h3>
+                        <p>Create personalized study schedules and get concise summaries of long texts. Perfect for exam preparation and understanding dense academic material quickly.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Language Learning</h3>
+                        <p>Practice conversations, get translations, and improve grammar in 50+ languages. ChatGPT is an excellent language tutor that adapts to your skill level.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">💡</div>
+                        <h3>Creative Brainstorming</h3>
+                        <p>Generate project ideas, explore different perspectives, and overcome creative blocks. Perfect for assignments that require original thinking and innovation.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">📖</div>
+                        <h3>Literature Analysis</h3>
+                        <p>Analyze themes, characters, and literary devices in novels and poems. ChatGPT helps you understand deeper meanings and write compelling literary essays.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Exam Preparation</h3>
+                        <p>Generate practice questions, create flashcards, and test your knowledge. ChatGPT acts as your personal quiz master for any subject.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="use-cases-section">
+            <div class="container">
+                <h2 class="section-title-center">Real-World <span class="highlight">Use Cases</span></h2>
+                
+                <div class="use-case-tabs">
+                    <div class="use-case-card">
+                        <h3>📝 Essay Writing Assistant</h3>
+                        <div class="example-box">
+                            <p class="example-prompt"><strong>You:</strong> "Help me outline an essay about climate change impacts"</p>
+                            <p class="example-response"><strong>ChatGPT:</strong> Provides a structured outline with introduction hooks, main arguments, supporting evidence suggestions, and conclusion strategies.</p>
+                        </div>
+                        <p class="use-case-benefit">Saves hours of planning time and ensures your essay has a logical flow.</p>
+                    </div>
+
+                    <div class="use-case-card">
+                        <h3>🧮 Homework Helper</h3>
+                        <div class="example-box">
+                            <p class="example-prompt"><strong>You:</strong> "Solve: ∫(3x² + 2x - 1)dx"</p>
+                            <p class="example-response"><strong>ChatGPT:</strong> Provides step-by-step solution: x³ + x² - x + C, explaining each integration rule used.</p>
+                        </div>
+                        <p class="use-case-benefit">Learn the process, not just the answer. Understand WHY each step matters.</p>
+                    </div>
+
+                    <div class="use-case-card">
+                        <h3>🗣️ Language Practice</h3>
+                        <div class="example-box">
+                            <p class="example-prompt"><strong>You:</strong> "Let's have a conversation in Spanish about travel"</p>
+                            <p class="example-response"><strong>ChatGPT:</strong> Engages in natural Spanish dialogue, corrects mistakes gently, and provides explanations.</p>
+                        </div>
+                        <p class="use-case-benefit">Practice anytime without fear of judgment. Perfect for building confidence.</p>
+                    </div>
+
+                    <div class="use-case-card">
+                        <h3>📊 Research Assistant</h3>
+                        <div class="example-box">
+                            <p class="example-prompt"><strong>You:</strong> "What are the main theories of motivation in psychology?"</p>
+                            <p class="example-response"><strong>ChatGPT:</strong> Summarizes Maslow's Hierarchy, Self-Determination Theory, Goal-Setting Theory with key researchers and applications.</p>
+                        </div>
+                        <p class="use-case-benefit">Get quick overviews before diving into detailed research. Save library time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-section">
+            <div class="container">
+                <h2 class="section-title-center">Simple <span class="highlight">Pricing</span></h2>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Free</h3>
+                        <div class="price">$0<span>/month</span></div>
+                        <ul class="pricing-features">
+                            <li>✓ Access to GPT-3.5</li>
+                            <li>✓ Unlimited messages</li>
+                            <li>✓ Basic response speed</li>
+                            <li>✓ Mobile & web access</li>
+                            <li>✗ Priority access during peak times</li>
+                            <li>✗ GPT-4 access</li>
+                        </ul>
+                        <a href="https://chat.openai.com" target="_blank" class="pricing-btn">Start Free</a>
+                    </div>
+
+                    <div class="pricing-card featured-plan">
+                        <div class="popular-badge">Most Popular</div>
+                        <h3>ChatGPT Plus</h3>
+                        <div class="price">$20<span>/month</span></div>
+                        <ul class="pricing-features">
+                            <li>✓ Access to GPT-4 &amp; GPT-4o</li>
+                            <li>✓ Faster response times</li>
+                            <li>✓ Priority during peak hours</li>
+                            <li>✓ Early access to new features</li>
+                            <li>✓ DALL-E image generation</li>
+                            <li>✓ Advanced data analysis</li>
+                        </ul>
+                        <a href="https://chat.openai.com/auth/login" target="_blank" class="pricing-btn primary">Upgrade Now</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>ChatGPT Team</h3>
+                        <div class="price">$25<span>/user/month</span></div>
+                        <ul class="pricing-features">
+                            <li>✓ Everything in Plus</li>
+                            <li>✓ Team workspace</li>
+                            <li>✓ Shared conversations</li>
+                            <li>✓ Admin controls</li>
+                            <li>✓ Higher message limits</li>
+                            <li>✓ Priority support</li>
+                        </ul>
+                        <a href="https://openai.com/chatgpt/team" target="_blank" class="pricing-btn">For Study Groups</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title-center">Pro <span class="highlight">Tips</span> for Students</h2>
+                
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-number">1</div>
+                        <h3>Be Specific with Prompts</h3>
+                        <p>Instead of "Help with history," try "Explain the causes of World War I for a high school essay with three main points."</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">2</div>
+                        <h3>Ask for Explanations</h3>
+                        <p>Always ask "Why?" and "Can you explain that differently?" to deepen your understanding.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">3</div>
+                        <h3>Use It to Check Your Work</h3>
+                        <p>Paste your essay and ask "What can I improve?" or "Is my argument logical?"</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">4</div>
+                        <h3>Create Custom Study Materials</h3>
+                        <p>Ask ChatGPT to generate practice questions, flashcards, or quizzes based on your textbook.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">5</div>
+                        <h3>Learn by Teaching</h3>
+                        <p>Explain a concept to ChatGPT and ask it to point out any mistakes in your understanding.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-number">6</div>
+                        <h3>Maintain Academic Integrity</h3>
+                        <p>Use ChatGPT to learn and understand, not to copy. Always write in your own words and cite sources.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="final-cta-section">
+            <div class="container">
+                <div class="final-cta-content">
+                    <h2>Ready to Transform Your Learning?</h2>
+                    <p>Join millions of students using ChatGPT to learn smarter, write better, and achieve more.</p>
+                    <div class="cta-buttons-group">
+                        <a href="https://chat.openai.com" target="_blank" class="cta-btn-large primary">Start Using ChatGPT Free →</a>
+                        <a href="../ai-students.html" class="cta-btn-large">Explore More AI Tools</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../preloader.js"></script>
+    <script src="../script.js"></script>
+    <script src="translation.js"></script>
+</body>
+</html>

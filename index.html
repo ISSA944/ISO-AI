@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Types of AI</title>
+</head>
+<body class="loading">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <span class="terminal-title">terminal</span>
+                <div class="terminal-spacer"></div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-output" id="terminalOutput"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h2 data-translate="modal.title">Get in Touch</h2>
+            <form class="contact-form" id="contactForm" novalidate>
+                <div class="form-group">
+                    <input type="text" id="nameInput" data-translate-placeholder="modal.name" placeholder="Name">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phoneInput" data-translate-placeholder="modal.phone" placeholder="Phone">
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+                <div class="form-group">
+                    <select id="reasonSelect">
+                        <option value="" disabled selected data-translate="modal.selectPlaceholder">What would you like to book?</option>
+                        <option value="consultation" data-translate="modal.consultation">Consultation</option>
+                        <option value="demo" data-translate="modal.demo">Demo</option>
+                        <option value="partnership" data-translate="modal.partnership">Partnership</option>
+                        <option value="other" data-translate="modal.other">Other</option>
+                    </select>
+                    <span class="error-message" id="reasonError"></span>
+                </div>
+                <div class="form-group hidden" id="otherReasonGroup">
+                    <input type="text" id="otherReasonInput" data-translate-placeholder="modal.otherReason" placeholder="Please specify...">
+                </div>
+                <button type="submit" class="submit-btn" data-translate="modal.send">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <section class="hero">
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="background-image.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <header class="site-header">
+        <div class="container_header">
+            <a href="/" class="header__logo" aria-label="Home">
+                <div class="logo-wrapper">
+                    <span class="logo-symbol">&lt;/&gt;</span>
+                    <span class="logo-text">ISO</span>
+                </div>
+            </a>
+
+            <!-- Burger Menu Button -->
+            <button class="burger-menu" id="burgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="header__nav" id="mainNav">
+                <a href="#" data-translate="nav.home">Home</a>
+                <a href="#about-project" data-translate="nav.aboutProject">About Project</a>
+                <a href="#what-is-ai" data-translate="nav.whatIsAI">What is AI</a>
+                <a href="#ai-coding" data-translate="nav.coding">AI for Coding</a>
+                <a href="#ai-students" data-translate="nav.students">AI for Students</a>
+            </nav>
+
+            <div class="header__right">
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <button class="lang-toggle" id="langToggle" data-current="en">EN</button>
+                </div>
+
+                <a href="#" class="btn" id="contactBtn" data-translate="nav.contacts">Contacts</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container_hero">
+                <h1 class="hero_h1" data-translate="hero.title">Information Systems Operator</h1>
+                <p class="hero_p" data-translate="hero.description">Welcome to ISO's first AI-focused project. We've curated a collection of the most powerful neural networks and AI tools designed specifically for developers and students. Whether you're coding, learning, or building the next big thing, our guide will help you find the perfect AI assistant to boost your productivity and accelerate your journey in tech.</p>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section class="impact-section">
+            <div class="impact-content">
+                <h2 class="impact-line-1" data-translate="impact.line1">AI is not the future.</h2>
+                <h2 class="impact-line-2"><span data-translate="impact.line2">It's the</span> <span class="highlight" data-translate="impact.present">present</span>.</h2>
+            </div>
+        </section>
+
+        <!-- What is AI Section -->
+        <section class="what-is-ai" id="what-is-ai">
+            <div class="container">
+                <h2 class="section-title"><span data-translate="whatIsAI.title1">What is</span> <span class="highlight">AI</span><span data-translate="whatIsAI.title2">?</span></h2>
+                <div class="tech-blocks">
+                    <div class="tech-card">
+                        <h3 data-translate="whatIsAI.perception.title">Perception</h3>
+                        <p data-translate="whatIsAI.perception.desc">Understanding the world through data, images, and sensors</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3 data-translate="whatIsAI.prediction.title">Prediction</h3>
+                        <p data-translate="whatIsAI.prediction.desc">Analyzing patterns to forecast outcomes and behaviors</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3 data-translate="whatIsAI.generation.title">Generation</h3>
+                        <p data-translate="whatIsAI.generation.desc">Creating new content, code, and solutions autonomously</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Split Direction Section -->
+        <section class="split-section">
+            <div class="split-left" id="ai-students">
+                <div class="split-content">
+                    <h2 data-translate="split.students.title">AI for Students</h2>
+                    <p data-translate="split.students.desc">Learn smarter with AI-powered tools</p>
+                    <a href="ai-students.html" class="explore-btn" data-translate="split.explore">Explore →</a>
+                </div>
+            </div>
+            <div class="split-right" id="ai-coding">
+                <div class="split-content">
+                    <h2 data-translate="split.coding.title">AI for Coding</h2>
+                    <p data-translate="split.coding.desc">Code faster with intelligent assistance</p>
+                    <a href="ai-coding.html" class="explore-btn" data-translate="split.explore">Explore →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Project Section -->
+        <section class="about-project" id="about-project">
+            <div class="container">
+                <h2 class="section-title"><span data-translate="aboutProject.title1">About</span> <span class="highlight" data-translate="aboutProject.title2">Project</span></h2>
+                <div class="about-content">
+                    <div class="about-intro">
+                        <div class="about-card">
+                            <div class="about-icon">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="30" width="80" height="50" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="30" cy="55" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="50" cy="55" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="70" cy="55" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <line x1="30" y1="47" x2="30" y2="35" stroke="currentColor" stroke-width="2"/>
+                                    <line x1="50" y1="47" x2="50" y2="35" stroke="currentColor" stroke-width="2"/>
+                                    <line x1="70" y1="47" x2="70" y2="35" stroke="currentColor" stroke-width="2"/>
+                                    <line x1="30" y1="63" x2="30" y2="75" stroke="currentColor" stroke-width="2"/>
+                                    <line x1="50" y1="63" x2="50" y2="75" stroke="currentColor" stroke-width="2"/>
+                                    <line x1="70" y1="63" x2="70" y2="75" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 data-translate="aboutProject.isoTitle">ISO's First AI Initiative</h3>
+                            <p data-translate="aboutProject.isoDesc">This is the pioneering AI-focused project from Information Systems Operator (ISO). We're committed to bringing the best artificial intelligence tools and neural networks to students and developers worldwide.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="20" r="6" fill="currentColor"/>
+                                    <circle cx="25" cy="50" r="6" fill="currentColor"/>
+                                    <circle cx="50" cy="50" r="6" fill="currentColor"/>
+                                    <circle cx="75" cy="50" r="6" fill="currentColor"/>
+                                    <circle cx="50" cy="80" r="6" fill="currentColor"/>
+                                    <line x1="50" y1="26" x2="25" y2="44" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                                    <line x1="50" y1="26" x2="50" y2="44" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                                    <line x1="50" y1="26" x2="75" y2="44" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                                    <line x1="25" y1="56" x2="50" y2="74" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                                    <line x1="50" y1="56" x2="50" y2="74" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                                    <line x1="75" y1="56" x2="50" y2="74" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                                </svg>
+                            </div>
+                            <h3 data-translate="aboutProject.popularTitle">Curated AI Collection</h3>
+                            <p data-translate="aboutProject.popularDesc">Our platform showcases the most popular and powerful neural networks available today. Each tool has been carefully selected based on performance, user feedback, and real-world impact on productivity and learning.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <polygon points="50,15 65,45 95,50 65,55 50,85 35,55 5,50 35,45" fill="none" stroke="currentColor" stroke-width="2.5"/>
+                                    <circle cx="50" cy="50" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="50" cy="50" r="4" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3 data-translate="aboutProject.rankingTitle">Quality Rankings</h3>
+                            <p data-translate="aboutProject.rankingDesc">We rank AI tools based on their effectiveness and popularity. For students, ChatGPT stands as our #1 recommended neural network — the most versatile and powerful AI assistant for academic success.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+
