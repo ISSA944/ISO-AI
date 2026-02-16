@@ -681,7 +681,7 @@ if (burgerMenu && mainNav) {
 }
 
 // ========== LANGUAGE SWITCHER (CIRCULAR TOGGLE) ==========
-function initLanguageSwitcher() {
+document.addEventListener('DOMContentLoaded', function() {
     const langToggle = document.getElementById('langToggle');
     
     if (!langToggle) return;
@@ -704,10 +704,7 @@ function initLanguageSwitcher() {
         
         translatePage(newLang);
     });
-}
-
-// Initialize language switcher
-initLanguageSwitcher();
+});
 
 // ========== FORM VALIDATION & SUBMISSION ==========
 const contactForm = document.getElementById('contactForm');
