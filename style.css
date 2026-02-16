@@ -1109,13 +1109,16 @@ body.loaded .page-hero {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    background: transparent;
-    border: none;
+    background: rgba(11, 15, 14, 0.8);
+    border: 2px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
     cursor: pointer;
-    padding: 8px;
+    padding: 10px;
     z-index: 1000;
     justify-self: end;
     position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .burger-menu span {
@@ -1124,6 +1127,7 @@ body.loaded .page-hero {
     background: #00ff88;
     border-radius: 3px;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 2px 5px rgba(0, 255, 136, 0.4);
 }
 
 .burger-menu.active span {
@@ -2289,6 +2293,8 @@ body.menu-open {
     letter-spacing: 2px;
     margin-bottom: 20px;
     line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .page-subtitle {
@@ -2331,6 +2337,8 @@ body.loaded .ai-tools-section .section-title-small {
     letter-spacing: 1.5px;
     line-height: 1.3;
     padding: 0 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .ai-tool-card {
@@ -2595,28 +2603,32 @@ body.loaded .ai-tools-section .section-title-small {
 /* Mobile devices */
 @media (max-width: 767px) {
     .page-title {
-        font-size: 32px;
-        letter-spacing: 1.5px;
+        font-size: 28px;
+        letter-spacing: 1px;
         line-height: 1.2;
         padding: 0 15px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .page-subtitle {
-        font-size: 15px;
+        font-size: 14px;
         line-height: 1.6;
         padding: 0 20px;
     }
 
     .section-title-small {
-        font-size: 28px;
-        letter-spacing: 1px;
+        font-size: 24px;
+        letter-spacing: 0.5px;
         margin-bottom: 40px;
         padding: 0 15px;
         line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .tool-header h3 {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .tool-description {
@@ -2624,11 +2636,11 @@ body.loaded .ai-tools-section .section-title-small {
     }
 
     .benefit-card h3 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .benefit-card p {
-        font-size: 14px;
+        font-size: 13px;
     }
 }
 
@@ -3332,32 +3344,43 @@ body.loaded .ai-tools-section .section-title-small {
 
 @media (max-width: 768px) {
     .tool-title {
-        font-size: 36px;
+        font-size: 32px;
         padding: 0 15px;
         line-height: 1.2;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .tool-tagline {
-        font-size: 15px;
+        font-size: 14px;
         padding: 0 20px;
         line-height: 1.6;
     }
 
     .section-title-center {
-        font-size: 28px;
+        font-size: 24px;
         padding: 0 15px;
         line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .final-cta-content h2 {
-        font-size: 30px;
+        font-size: 26px;
         padding: 0 15px;
         line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .cta-btn-large {
-        font-size: 16px;
-        padding: 14px 35px;
+        font-size: 15px;
+        padding: 12px 30px;
+    }
+
+    .feature-tag, .tool-badge {
+        font-size: 12px;
+        padding: 6px 12px;
     }
 }
 
