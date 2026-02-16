@@ -598,6 +598,15 @@ body.loaded .page-hero {
 
 /* Mobile adjustments */
 @media (max-width: 480px) {
+    html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
+    * {
+        max-width: 100%;
+    }
+
     .terminal {
         max-width: 95vw;
         border-radius: 12px;
@@ -611,6 +620,48 @@ body.loaded .page-hero {
     .dot {
         width: 10px;
         height: 10px;
+    }
+
+    /* Заголовки */
+    .hero_h1 {
+        font-size: 24px !important;
+        letter-spacing: 1px !important;
+        line-height: 1.1 !important;
+        word-break: break-word !important;
+        hyphens: auto !important;
+    }
+
+    .hero_p {
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+    }
+
+    .page-title {
+        font-size: 22px !important;
+    }
+
+    .page-subtitle {
+        font-size: 12px !important;
+    }
+
+    .section-title-small {
+        font-size: 18px !important;
+    }
+
+    .tool-title {
+        font-size: 24px !important;
+    }
+
+    .tool-tagline {
+        font-size: 12px !important;
+    }
+
+    .section-title-center {
+        font-size: 18px !important;
+    }
+
+    .final-cta-content h2 {
+        font-size: 20px !important;
     }
 }
 
@@ -1482,6 +1533,8 @@ body.menu-open {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .section-title {
@@ -1491,6 +1544,7 @@ body.menu-open {
     text-align: center;
     margin-bottom: 60px;
     letter-spacing: 2px;
+    word-break: break-word;
 }
 
 .tech-blocks {
@@ -2293,8 +2347,9 @@ body.menu-open {
     letter-spacing: 2px;
     margin-bottom: 20px;
     line-height: 1.2;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
 }
 
 .page-subtitle {
@@ -2308,6 +2363,7 @@ body.menu-open {
     max-width: 700px;
     margin: 0 auto;
     padding: 0 20px;
+    word-break: break-word;
 }
 
 /* AI Tools Section */
@@ -2337,8 +2393,9 @@ body.loaded .ai-tools-section .section-title-small {
     letter-spacing: 1.5px;
     line-height: 1.3;
     padding: 0 15px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
 }
 
 .ai-tool-card {
@@ -2602,45 +2659,64 @@ body.loaded .ai-tools-section .section-title-small {
 
 /* Mobile devices */
 @media (max-width: 767px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 0 20px;
+        max-width: 100%;
+    }
+
     .page-title {
-        font-size: 28px;
-        letter-spacing: 1px;
-        line-height: 1.2;
-        padding: 0 15px;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+        font-size: 24px !important;
+        letter-spacing: 0.5px;
+        line-height: 1.1;
+        padding: 0 10px;
+        word-break: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
     }
 
     .page-subtitle {
-        font-size: 14px;
-        line-height: 1.6;
-        padding: 0 20px;
+        font-size: 13px !important;
+        line-height: 1.5;
+        padding: 0 10px;
+        word-break: break-word;
     }
 
     .section-title-small {
-        font-size: 24px;
-        letter-spacing: 0.5px;
-        margin-bottom: 40px;
-        padding: 0 15px;
-        line-height: 1.3;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+        font-size: 20px !important;
+        letter-spacing: 0.3px;
+        margin-bottom: 30px;
+        padding: 0 10px;
+        line-height: 1.2;
+        word-break: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
     }
 
     .tool-header h3 {
-        font-size: 20px;
+        font-size: 18px !important;
+        word-break: break-word;
     }
 
     .tool-description {
-        font-size: 14px;
+        font-size: 13px !important;
+        line-height: 1.5;
     }
 
     .benefit-card h3 {
-        font-size: 18px;
+        font-size: 16px !important;
     }
 
     .benefit-card p {
-        font-size: 13px;
+        font-size: 12px !important;
+    }
+
+    .feature-tag {
+        font-size: 11px !important;
+        padding: 5px 10px !important;
     }
 }
 
@@ -3343,44 +3419,62 @@ body.loaded .ai-tools-section .section-title-small {
 }
 
 @media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 0 20px;
+        max-width: 100%;
+    }
+
     .tool-title {
-        font-size: 32px;
-        padding: 0 15px;
-        line-height: 1.2;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+        font-size: 26px !important;
+        padding: 0 10px;
+        line-height: 1.1;
+        word-break: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
     }
 
     .tool-tagline {
-        font-size: 14px;
-        padding: 0 20px;
-        line-height: 1.6;
+        font-size: 13px !important;
+        padding: 0 10px;
+        line-height: 1.5;
+        word-break: break-word;
     }
 
     .section-title-center {
-        font-size: 24px;
-        padding: 0 15px;
-        line-height: 1.3;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+        font-size: 20px !important;
+        padding: 0 10px;
+        line-height: 1.2;
+        word-break: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
     }
 
     .final-cta-content h2 {
-        font-size: 26px;
-        padding: 0 15px;
-        line-height: 1.3;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+        font-size: 22px !important;
+        padding: 0 10px;
+        line-height: 1.2;
+        word-break: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
     }
 
     .cta-btn-large {
-        font-size: 15px;
-        padding: 12px 30px;
+        font-size: 14px !important;
+        padding: 12px 25px !important;
     }
 
     .feature-tag, .tool-badge {
-        font-size: 12px;
-        padding: 6px 12px;
+        font-size: 11px !important;
+        padding: 5px 10px !important;
+    }
+
+    .tool-icon-large {
+        width: 60px !important;
+        height: 60px !important;
     }
 }
 
