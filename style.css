@@ -2283,23 +2283,25 @@ body.menu-open {
 
 .page-title {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 48px;
+    font-size: 36px;
     color: #f1f1f1;
     text-align: center;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     margin-bottom: 20px;
+    line-height: 1.2;
 }
 
 .page-subtitle {
     font-family: "Inter", sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.7;
+    line-height: 1.6;
     letter-spacing: 0.2px;
     color: rgba(255, 255, 255, 0.85);
     text-align: center;
     max-width: 700px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* AI Tools Section */
@@ -2322,11 +2324,13 @@ body.loaded .ai-tools-section .section-title-small {
 
 .section-title-small {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 42px;
+    font-size: 32px;
     color: #f1f1f1;
     text-align: center;
     margin-bottom: 60px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
+    line-height: 1.3;
+    padding: 0 15px;
 }
 
 .ai-tool-card {
@@ -2587,6 +2591,46 @@ body.loaded .ai-tools-section .section-title-small {
 }
 
 /* ========== RESPONSIVE FOR PAGE STYLES ========== */
+
+/* Mobile devices */
+@media (max-width: 767px) {
+    .page-title {
+        font-size: 32px;
+        letter-spacing: 1.5px;
+        line-height: 1.2;
+        padding: 0 15px;
+    }
+
+    .page-subtitle {
+        font-size: 15px;
+        line-height: 1.6;
+        padding: 0 20px;
+    }
+
+    .section-title-small {
+        font-size: 28px;
+        letter-spacing: 1px;
+        margin-bottom: 40px;
+        padding: 0 15px;
+        line-height: 1.3;
+    }
+
+    .tool-header h3 {
+        font-size: 22px;
+    }
+
+    .tool-description {
+        font-size: 14px;
+    }
+
+    .benefit-card h3 {
+        font-size: 20px;
+    }
+
+    .benefit-card p {
+        font-size: 14px;
+    }
+}
 
 @media (min-width: 768px) {
     .page-title {
@@ -3288,19 +3332,32 @@ body.loaded .ai-tools-section .section-title-small {
 
 @media (max-width: 768px) {
     .tool-title {
-        font-size: 48px;
+        font-size: 36px;
+        padding: 0 15px;
+        line-height: 1.2;
     }
 
     .tool-tagline {
-        font-size: 18px;
+        font-size: 15px;
+        padding: 0 20px;
+        line-height: 1.6;
     }
 
     .section-title-center {
-        font-size: 36px;
+        font-size: 28px;
+        padding: 0 15px;
+        line-height: 1.3;
     }
 
     .final-cta-content h2 {
-        font-size: 38px;
+        font-size: 30px;
+        padding: 0 15px;
+        line-height: 1.3;
+    }
+
+    .cta-btn-large {
+        font-size: 16px;
+        padding: 14px 35px;
     }
 }
 
