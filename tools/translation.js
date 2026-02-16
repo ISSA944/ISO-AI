@@ -1077,12 +1077,27 @@ function applyToolTranslation(lang) {
 document.addEventListener('DOMContentLoaded', () => {
     const langBtns = document.querySelectorAll('.lang-btn');
     
-    // Apply default language (English)
-    applyToolTranslation('en');
+    // Load saved language from localStorage or default to 'en'
+    const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+    
+    // Apply saved language
+    applyToolTranslation(savedLang);
+    
+    // Update button states
+    langBtns.forEach(b => {
+        if (b.getAttribute('data-lang') === savedLang) {
+            b.classList.add('active');
+        } else {
+            b.classList.remove('active');
+        }
+    });
     
     langBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.getAttribute('data-lang');
+            
+            // Save to localStorage
+            localStorage.setItem('preferredLanguage', lang);
             
             // Update active state
             langBtns.forEach(b => b.classList.remove('active'));

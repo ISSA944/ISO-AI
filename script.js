@@ -686,9 +686,18 @@ function initLanguageSwitcher() {
     
     if (!langToggle) return;
     
+    // Load saved language from localStorage or default to 'en'
+    const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+    langToggle.setAttribute('data-current', savedLang);
+    langToggle.textContent = savedLang.toUpperCase();
+    translatePage(savedLang);
+    
     langToggle.addEventListener('click', () => {
         const currentLang = langToggle.getAttribute('data-current');
         const newLang = currentLang === 'en' ? 'ru' : 'en';
+        
+        // Save to localStorage
+        localStorage.setItem('preferredLanguage', newLang);
         
         langToggle.setAttribute('data-current', newLang);
         langToggle.textContent = newLang.toUpperCase();
