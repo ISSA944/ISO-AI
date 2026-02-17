@@ -35,7 +35,7 @@ body {
 }
 
 body.loading {
-    overflow: hidden;
+    /* overflow: hidden; */ /* Removed to allow scrolling during preloader */
 }
 
 body.loaded .site-header {
