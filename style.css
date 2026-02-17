@@ -700,12 +700,14 @@ body.loaded .page-hero {
     justify-content: center;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none; /* Don't block when hidden */
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .contact-modal.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto; /* Enable when active */
 }
 
 .modal-overlay {
@@ -999,6 +1001,7 @@ body.loaded .page-hero {
     z-index: 100;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none; /* Don't block when hidden */
     transform: translateY(-100%);
     transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
                 visibility 0.7s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1008,6 +1011,7 @@ body.loaded .page-hero {
 .header__nav.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto; /* Enable when active */
     transform: translateY(0);
 }
 
