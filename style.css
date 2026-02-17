@@ -1233,10 +1233,6 @@ body.loaded .page-hero {
 /* Lock body scroll when menu is open */
 body.menu-open {
     overflow: hidden;
-    position: fixed;
-    width: 100%;
-    left: 0;
-    right: 0;
 }
 
 /* Backdrop blur when menu is open */

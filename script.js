@@ -644,25 +644,12 @@ if (modalOverlay) {
 // ========== BURGER MENU ==========
 const burgerMenu = document.getElementById('burgerMenu');
 const mainNav = document.getElementById('mainNav');
-let scrollPosition = 0;
 
 if (burgerMenu && mainNav) {
     burgerMenu.addEventListener('click', () => {
         burgerMenu.classList.toggle('active');
         mainNav.classList.toggle('active');
-        
-        // Toggle menu-open class and handle scroll position
-        if (!document.body.classList.contains('menu-open')) {
-            // Opening menu - save scroll position and lock
-            scrollPosition = window.pageYOffset;
-            document.body.style.top = `-${scrollPosition}px`;
-            document.body.classList.add('menu-open');
-        } else {
-            // Closing menu - restore scroll position
-            document.body.classList.remove('menu-open');
-            document.body.style.top = '';
-            window.scrollTo(0, scrollPosition);
-        }
+        document.body.classList.toggle('menu-open');
         
         // Animate nav links when menu opens
         if (mainNav.classList.contains('active')) {
@@ -680,8 +667,6 @@ if (burgerMenu && mainNav) {
             burgerMenu.classList.remove('active');
             mainNav.classList.remove('active');
             document.body.classList.remove('menu-open');
-            document.body.style.top = '';
-            window.scrollTo(0, scrollPosition);
         });
     });
     
@@ -691,8 +676,6 @@ if (burgerMenu && mainNav) {
             burgerMenu.classList.remove('active');
             mainNav.classList.remove('active');
             document.body.classList.remove('menu-open');
-            document.body.style.top = '';
-            window.scrollTo(0, scrollPosition);
         }
     });
 }
