@@ -380,7 +380,7 @@ body.loaded .page-hero {
     justify-content: center;
     z-index: 9999;
     transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    /* pointer-events managed via .hidden class */
+    pointer-events: none; /* CRITICAL: Don't block touch/scroll */
 }
 
 .preloader.hidden {
@@ -606,13 +606,13 @@ body.loaded .page-hero {
 
 /* Mobile adjustments */
 @media (max-width: 480px) {
-    * {
-        max-width: 100%;
-    }
+    /* Removed * { max-width: 100%; } - can cause issues */
 
     body, html {
         overflow-x: hidden !important;
+        overflow-y: auto !important; /* CRITICAL: Always allow vertical scroll */
         max-width: 100vw !important;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     }
 
     .terminal {
@@ -1426,6 +1426,7 @@ body.menu-open::before {
     height: 100%;
     object-fit: cover;
     z-index: -2;
+    pointer-events: none; /* Don't block touch/scroll */
 }
 
 .hero::before {
@@ -1435,6 +1436,7 @@ body.menu-open::before {
     background: rgba(0, 0, 0, var(--overlay-opacity, 0.65));
     z-index: -1;
     transition: background 0.3s ease;
+    pointer-events: none; /* CRITICAL: Don't block touch/scroll */
 }
 
 .container_hero {
