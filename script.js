@@ -898,38 +898,112 @@ function validateForm() {
 }
 
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    // Form is configured and ready
+    console.log('%c✅ Contact Form Ready', 'color: #00ff88; font-size: 14px; font-weight: bold;');
+    console.log('%cSubmissions will be sent to: mukan.iskander@mail.ru', 'color: #ffffff; font-size: 12px;');
+    
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         if (validateForm()) {
             const successMessage = translations[currentLang].modal.success;
-
-            // Create success message element
-            let successEl = document.getElementById('formSuccessMessage');
-            if (!successEl) {
-                successEl = document.createElement('div');
-                successEl.id = 'formSuccessMessage';
-                successEl.className = 'form-success-message';
-                contactForm.appendChild(successEl);
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            
+            // Disable button and show loading state
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = currentLang === 'ru' ? 'Отправка...' : 'Sending...';
             }
 
-            successEl.textContent = successMessage;
-            successEl.classList.add('show');
+            // Prepare form data for Web3Forms
+            const formData = new FormData();
+            
+            // Access key from Web3Forms
+            formData.append('access_key', '15946a5f-670e-46fd-bcfe-048fdf51cde9');
+            
+            // Add form fields
+            formData.append('name', nameInput.value.trim());
+            formData.append('phone', phoneInput.value.trim());
+            formData.append('reason', reasonSelect.options[reasonSelect.selectedIndex].text);
+            
+            if (reasonSelect.value === 'other' && otherReasonInput.value.trim()) {
+                formData.append('other_reason', otherReasonInput.value.trim());
+            }
+            
+            // Add additional info
+            formData.append('subject', `New Contact Form: ${reasonSelect.options[reasonSelect.selectedIndex].text}`);
+            formData.append('from_name', 'ISO AI Website');
 
-            // Reset form
-            contactForm.reset();
-            otherReasonGroup.classList.add('hidden');
-            otherReasonInput.required = false;
+            try {
+                // Send to Web3Forms
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
 
-            // Hide success message and close modal after 3 seconds
-            setTimeout(() => {
-                successEl.classList.remove('show');
+                const result = await response.json();
+
+                if (result.success) {
+                    // Success message
+                    let successEl = document.getElementById('formSuccessMessage');
+                    if (!successEl) {
+                        successEl = document.createElement('div');
+                        successEl.id = 'formSuccessMessage';
+                        successEl.className = 'form-success-message';
+                        contactForm.appendChild(successEl);
+                    }
+
+                    successEl.textContent = successMessage;
+                    successEl.classList.add('show');
+
+                    // Reset form
+                    contactForm.reset();
+                    otherReasonGroup.classList.add('hidden');
+                    otherReasonInput.required = false;
+
+                    // Hide success message and close modal after 3 seconds
+                    setTimeout(() => {
+                        successEl.classList.remove('show');
+                        setTimeout(() => {
+                            contactModal.classList.remove('active');
+                            document.body.style.overflow = '';
+                            successEl.remove();
+                        }, 500);
+                    }, 3000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                
+                // Show error message
+                let errorEl = document.getElementById('formErrorMessage');
+                if (!errorEl) {
+                    errorEl = document.createElement('div');
+                    errorEl.id = 'formErrorMessage';
+                    errorEl.className = 'form-success-message';
+                    errorEl.style.background = 'rgba(255, 0, 0, 0.1)';
+                    errorEl.style.borderColor = '#ff0000';
+                    errorEl.style.color = '#ff0000';
+                    contactForm.appendChild(errorEl);
+                }
+
+                errorEl.textContent = currentLang === 'ru' 
+                    ? 'Ошибка отправки. Попробуйте позже.' 
+                    : 'Submission failed. Please try again.';
+                errorEl.classList.add('show');
+
                 setTimeout(() => {
-                    contactModal.classList.remove('active');
-                    document.body.style.overflow = '';
-                    successEl.remove();
-                }, 500);
-            }, 3000);
+                    errorEl.classList.remove('show');
+                    setTimeout(() => errorEl.remove(), 500);
+                }, 3000);
+            } finally {
+                // Re-enable button
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = translations[currentLang].modal.send;
+                }
+            }
         }
     });
 }
