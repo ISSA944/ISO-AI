@@ -510,19 +510,31 @@ function translatePage(lang) {
         }
     });
 }
+// FALLBACK: Force hide preloader after 3 seconds no matter what
+setTimeout(() => {
+    const preloader = document.querySelector('.preloader');
+    if (preloader && !preloader.classList.contains('hidden')) {
+        console.log('⚡ Fallback: Forcing preloader hide');
+        preloader.classList.add('hidden');
+        document.body.classList.add('loaded');
+        document.body.classList.remove('loading');
+        setTimeout(() => preloader.remove(), 600);
+    }
+}, 3000);
+
 window.addEventListener('load', () => {
     const preloader = document.querySelector('.preloader');
     const terminalOutput = document.getElementById('terminalOutput');
     const body = document.body;
 
-    // Short terminal-style commands
+    // Short terminal-style commands - faster timing
     const commands = [
         { type: 'command', text: '$ cloud boot', delay: 0 },
-        { type: 'success', text: 'Packages installed successfully', delay: 600 },
-        { type: 'progress', delay: 300 },
-        { type: 'info', text: 'found 1283 packages', delay: 900 },
-        { type: 'info', text: 'added 1283 packages', delay: 500 },
-        { type: 'success', text: 'Cloud installed successfully!', delay: 700 }
+        { type: 'success', text: 'Packages installed successfully', delay: 400 },
+        { type: 'progress', delay: 200 },
+        { type: 'info', text: 'found 1283 packages', delay: 500 },
+        { type: 'info', text: 'added 1283 packages', delay: 300 },
+        { type: 'success', text: 'Cloud installed successfully!', delay: 400 }
     ];
 
     let lineDelay = 0;
@@ -580,8 +592,8 @@ window.addEventListener('load', () => {
         }
         window.preloaderInitialized = true;
 
-        // Minimum display time
-        const minDisplayTime = 2500;
+        // Minimum display time - reduced for faster loading
+        const minDisplayTime = 1800;
         const startTime = Date.now();
 
         for (const command of commands) {
@@ -596,8 +608,8 @@ window.addEventListener('load', () => {
             await new Promise(resolve => setTimeout(resolve, remaining));
         }
 
-        // Wait a bit more before hiding
-        await new Promise(resolve => setTimeout(resolve, 400));
+        // Wait a bit more before hiding - reduced
+        await new Promise(resolve => setTimeout(resolve, 200));
 
         preloader.classList.add('hidden');
         body.classList.add('loaded');

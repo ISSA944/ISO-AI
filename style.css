@@ -39,33 +39,33 @@ body.loading {
 }
 
 body.loaded .site-header {
-    animation: fadeInDown 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: fadeInDown 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 body.loaded .hero .container_hero {
-    animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+    animation: fadeInUp 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
     opacity: 0;
 }
 
 /* Subpage animations */
 body.loaded .page-header {
-    animation: fadeInDown 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: fadeInDown 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 body.loaded .page-hero {
-    animation: fadeInUpSmooth 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards;
+    animation: fadeInUpSmooth 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
     opacity: 0;
 }
 
 /* Scroll-triggered animations - Ultra smooth like Spark Studio */
 .ai-tools-section .section-title-small {
     opacity: 0;
-    transform: translateY(30px);
-    filter: blur(5px);
+    transform: translateY(25px);
+    filter: blur(4px);
     transition: 
-        opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        filter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .ai-tools-section .section-title-small.reveal {
@@ -76,12 +76,12 @@ body.loaded .page-hero {
 
 .ai-tool-card {
     opacity: 0;
-    transform: translateY(35px) scale(0.97);
-    filter: blur(3px);
+    transform: translateY(30px) scale(0.98);
+    filter: blur(2px);
     transition: 
-        opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        filter 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .ai-tool-card.reveal {
@@ -92,12 +92,12 @@ body.loaded .page-hero {
 
 .benefits-section .section-title-small {
     opacity: 0;
-    transform: translateY(30px);
-    filter: blur(5px);
+    transform: translateY(25px);
+    filter: blur(4px);
     transition: 
-        opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        filter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .benefits-section .section-title-small.reveal {
@@ -108,12 +108,12 @@ body.loaded .page-hero {
 
 .benefit-card {
     opacity: 0;
-    transform: translateY(35px) scale(0.97);
-    filter: blur(3px);
+    transform: translateY(30px) scale(0.98);
+    filter: blur(2px);
     transition: 
-        opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        filter 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .benefit-card.reveal {
@@ -125,12 +125,12 @@ body.loaded .page-hero {
 /* ========== ABOUT PROJECT REVEAL ANIMATIONS - ULTRA SMOOTH ========== */
 .about-project .section-title {
     opacity: 0;
-    transform: translateY(30px);
-    filter: blur(8px);
+    transform: translateY(25px);
+    filter: blur(6px);
     transition: 
-        opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        filter 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.8s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .about-project .section-title.reveal {
@@ -141,12 +141,12 @@ body.loaded .page-hero {
 
 .about-card {
     opacity: 0;
-    transform: translateY(40px) scale(0.95);
-    filter: blur(5px);
+    transform: translateY(35px) scale(0.97);
+    filter: blur(3px);
     transition: 
-        opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        filter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .about-card.reveal {
@@ -157,12 +157,12 @@ body.loaded .page-hero {
 
 .cta-section {
     opacity: 0;
-    transform: translateY(30px);
-    filter: blur(5px);
+    transform: translateY(25px);
+    filter: blur(4px);
     transition: 
-        opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        filter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cta-section.reveal {
@@ -179,12 +179,12 @@ body.loaded .page-hero {
 .tips-section,
 .final-cta {
     opacity: 0;
-    transform: translateY(40px);
-    filter: blur(5px);
+    transform: translateY(35px);
+    filter: blur(4px);
     transition: 
-        opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        filter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ========== ENHANCED SCROLL REVEAL ANIMATIONS FOR TOOL PAGES ========== */
@@ -195,12 +195,12 @@ body.loaded .page-hero {
 .tips-section,
 .final-cta-section {
     opacity: 0;
-    transform: translateY(40px);
-    filter: blur(5px);
+    transform: translateY(35px);
+    filter: blur(4px);
     transition: 
-        opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        filter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tool-overview.reveal,
@@ -217,12 +217,12 @@ body.loaded .page-hero {
 /* Section Titles */
 .section-title-center {
     opacity: 0;
-    transform: translateY(30px);
-    filter: blur(5px);
+    transform: translateY(25px);
+    filter: blur(4px);
     transition: 
-        opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        filter 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .section-title-center.reveal {
@@ -379,14 +379,14 @@ body.loaded .page-hero {
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-    pointer-events: all;
+    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* pointer-events managed via .hidden class */
 }
 
 .preloader.hidden {
     opacity: 0;
     visibility: hidden;
-    pointer-events: none;
+    pointer-events: none !important;
 }
 
 .terminal {
@@ -1000,9 +1000,9 @@ body.loaded .page-hero {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-100%);
-    transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                visibility 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .header__nav.active {
@@ -1018,13 +1018,13 @@ body.loaded .page-hero {
     text-decoration: none;
     position: relative;
     display: inline-block;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     white-space: normal;
     word-wrap: break-word;
     padding: 10px 20px;
     opacity: 0;
     transform: translateY(20px);
-    animation: slideInNav 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: slideInNav 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     text-align: center;
     max-width: 90vw;
 }
@@ -1247,15 +1247,17 @@ body.menu-open::before {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     z-index: 90;
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
+        backdrop-filter: blur(0px);
     }
     to {
         opacity: 1;
+        backdrop-filter: blur(12px);
     }
 }
 
