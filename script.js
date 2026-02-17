@@ -644,12 +644,25 @@ if (modalOverlay) {
 // ========== BURGER MENU ==========
 const burgerMenu = document.getElementById('burgerMenu');
 const mainNav = document.getElementById('mainNav');
+let scrollPosition = 0;
 
 if (burgerMenu && mainNav) {
     burgerMenu.addEventListener('click', () => {
         burgerMenu.classList.toggle('active');
         mainNav.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
+        
+        // Toggle menu-open class and handle scroll position
+        if (!document.body.classList.contains('menu-open')) {
+            // Opening menu - save scroll position and lock
+            scrollPosition = window.pageYOffset;
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.classList.add('menu-open');
+        } else {
+            // Closing menu - restore scroll position
+            document.body.classList.remove('menu-open');
+            document.body.style.top = '';
+            window.scrollTo(0, scrollPosition);
+        }
         
         // Animate nav links when menu opens
         if (mainNav.classList.contains('active')) {
@@ -667,6 +680,8 @@ if (burgerMenu && mainNav) {
             burgerMenu.classList.remove('active');
             mainNav.classList.remove('active');
             document.body.classList.remove('menu-open');
+            document.body.style.top = '';
+            window.scrollTo(0, scrollPosition);
         });
     });
     
@@ -676,6 +691,8 @@ if (burgerMenu && mainNav) {
             burgerMenu.classList.remove('active');
             mainNav.classList.remove('active');
             document.body.classList.remove('menu-open');
+            document.body.style.top = '';
+            window.scrollTo(0, scrollPosition);
         }
     });
 }
@@ -1074,10 +1091,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 1200; // Slower: 1.2 seconds instead of instant
+            let start = null;
+            
+            function animation(currentTime) {
+                if (start === null) start = currentTime;
+                const timeElapsed = currentTime - start;
+                const run = ease(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+            
+            // Easing function for smooth deceleration
+            function ease(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+            
+            requestAnimationFrame(animation);
         }
     });
 });
@@ -1085,6 +1121,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ========== SPLIT SECTION GRID ANIMATION ==========
 const splitLeft = document.querySelector('.split-left');
 const splitRight = document.querySelector('.split-right');
+
+// Observer for split sections reveal
+const splitObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('reveal');
+            splitObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
+});
+
+if (splitLeft) splitObserver.observe(splitLeft);
+if (splitRight) splitObserver.observe(splitRight);
 
 function createGridPattern(element) {
     const grid = document.createElement('div');
