@@ -625,6 +625,22 @@ window.addEventListener('load', () => {
     runBootSequence();
 });
 
+// Guard against bfcache/restored states leaving the page non-scrollable
+window.addEventListener('pageshow', () => {
+    const restoredModal = document.getElementById('contactModal');
+    const restoredNav = document.getElementById('mainNav');
+    const restoredBurger = document.getElementById('burgerMenu');
+    const root = document.documentElement;
+
+    if (restoredModal) restoredModal.classList.remove('active');
+    if (restoredNav) restoredNav.classList.remove('active');
+    if (restoredBurger) restoredBurger.classList.remove('active');
+
+    root.classList.remove('menu-open', 'modal-open');
+    document.body.classList.remove('menu-open');
+    document.body.style.overflow = '';
+});
+
 // ========== CONTACT MODAL ==========
 const contactModal = document.getElementById('contactModal');
 const contactBtn = document.getElementById('contactBtn');
@@ -635,6 +651,7 @@ if (contactBtn && contactModal) {
     contactBtn.addEventListener('click', (e) => {
         e.preventDefault();
         contactModal.classList.add('active');
+        document.documentElement.classList.add('modal-open');
         document.body.style.overflow = 'hidden';
     });
 }
@@ -642,6 +659,7 @@ if (contactBtn && contactModal) {
 if (closeModal) {
     closeModal.addEventListener('click', () => {
         contactModal.classList.remove('active');
+        document.documentElement.classList.remove('modal-open');
         document.body.style.overflow = '';
     });
 }
@@ -649,6 +667,7 @@ if (closeModal) {
 if (modalOverlay) {
     modalOverlay.addEventListener('click', () => {
         contactModal.classList.remove('active');
+        document.documentElement.classList.remove('modal-open');
         document.body.style.overflow = '';
     });
 }
@@ -658,9 +677,17 @@ const burgerMenu = document.getElementById('burgerMenu');
 const mainNav = document.getElementById('mainNav');
 
 if (burgerMenu && mainNav) {
+    const closeMobileMenu = () => {
+        burgerMenu.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.documentElement.classList.remove('menu-open');
+        document.body.classList.remove('menu-open');
+    };
+
     burgerMenu.addEventListener('click', () => {
         burgerMenu.classList.toggle('active');
         mainNav.classList.toggle('active');
+        document.documentElement.classList.toggle('menu-open');
         document.body.classList.toggle('menu-open');
         
         // Animate nav links when menu opens
@@ -676,18 +703,28 @@ if (burgerMenu && mainNav) {
     const navLinks = mainNav.querySelectorAll('a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            burgerMenu.classList.remove('active');
-            mainNav.classList.remove('active');
-            document.body.classList.remove('menu-open');
+            closeMobileMenu();
         });
     });
     
     // Close menu when clicking outside (on overlay)
     mainNav.addEventListener('click', (e) => {
         if (e.target === mainNav) {
-            burgerMenu.classList.remove('active');
-            mainNav.classList.remove('active');
-            document.body.classList.remove('menu-open');
+            closeMobileMenu();
+        }
+    });
+
+    // Keep nav state valid when switching between mobile/desktop widths
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+            closeMobileMenu();
+        }
+    });
+
+    // Close opened menu with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+            closeMobileMenu();
         }
     });
 }
@@ -978,6 +1015,7 @@ if (contactForm) {
                         successEl.classList.remove('show');
                         setTimeout(() => {
                             contactModal.classList.remove('active');
+                            document.documentElement.classList.remove('modal-open');
                             document.body.style.overflow = '';
                             successEl.remove();
                         }, 500);
@@ -1083,13 +1121,26 @@ techCards.forEach(card => {
 // ========== SMOOTH SCROLL FOR NAVIGATION ==========
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+
+        // Leave bare "#" links to native/default handlers (or other listeners)
+        if (!href || href === '#') {
+            return;
+        }
+
+        let target = null;
+        try {
+            target = document.querySelector(href);
+        } catch {
+            return;
+        }
+
         if (target) {
+            e.preventDefault();
             const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
             const startPosition = window.pageYOffset;
             const distance = targetPosition - startPosition;
-            const duration = 1200; // Slower: 1.2 seconds instead of instant
+            const duration = 420; // Faster navigation feel on the main page
             let start = null;
             
             function animation(currentTime) {
